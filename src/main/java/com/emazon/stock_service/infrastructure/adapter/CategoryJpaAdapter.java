@@ -5,8 +5,11 @@ import com.emazon.stock_service.domain.spi.ICategoryPersistentPort;
 import com.emazon.stock_service.infrastructure.exception.CategoryException;
 import com.emazon.stock_service.infrastructure.mapper.ICategoryEntityMapper;
 import com.emazon.stock_service.infrastructure.repository.CategoryRepository;
+import com.emazon.stock_service.infrastructure.utils.PageCreator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Component
@@ -25,5 +28,16 @@ public class CategoryJpaAdapter implements ICategoryPersistentPort {
     @Override
     public boolean existsByName(String name) {
         return categoryRepository.existsByNameIgnoreCase(name);
+    }
+
+    @Override
+    public List<Category> getCategories(String order) {
+        try {
+            return categoryRepository.findAll(PageCreator.createPageable(order))
+                    .map(categoryEntityMapper::toCategory)
+                    .getContent();
+        } catch (Exception e) {
+            throw new CategoryException(e.getMessage());
+        }
     }
 }
