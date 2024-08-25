@@ -1,7 +1,6 @@
 package com.emazon.stock_service.application.utils;
 
 import com.emazon.stock_service.application.config.PaginationConfig;
-import com.emazon.stock_service.application.dto.CategoryDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
