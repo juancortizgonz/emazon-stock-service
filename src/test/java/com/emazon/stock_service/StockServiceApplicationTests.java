@@ -8,6 +8,7 @@ class StockServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
+		// this method ensure that Spring context is correct
 	}
 
 }
