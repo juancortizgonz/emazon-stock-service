@@ -6,12 +6,12 @@ import com.emazon.stock_service.infrastructure.exception.CategoryException;
 import com.emazon.stock_service.infrastructure.mapper.ICategoryEntityMapper;
 import com.emazon.stock_service.infrastructure.repository.CategoryRepository;
 import com.emazon.stock_service.infrastructure.utils.PageCreator;
-import lombok.RequiredArgsConstructor;
+import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@RequiredArgsConstructor
+@Data
 @Component
 public class CategoryJpaAdapter implements ICategoryPersistentPort {
     private final ICategoryEntityMapper categoryEntityMapper;
