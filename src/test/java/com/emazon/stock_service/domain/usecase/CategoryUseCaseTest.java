@@ -30,7 +30,6 @@ class CategoryUseCaseTest {
     @DisplayName("Given a valid category it should be inserted into the database correctly.")
     void shouldInsertValidCategoryIntoDatabase() {
         Category category = new Category(1L, "Category name 1", "Category description.");
-        doNothing().when(categoryPersistentPort).saveCategory(category);
         assertDoesNotThrow(() -> categoryUseCase.saveCategory(category));
         verify(categoryPersistentPort).saveCategory(category);
     }

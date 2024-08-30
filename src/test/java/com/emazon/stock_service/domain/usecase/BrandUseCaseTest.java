@@ -29,9 +29,8 @@ class BrandUseCaseTest {
     @DisplayName("Given a valid brand it should be inserted into the database correctly.")
     void shouldInsertValidCategoryIntoDatabase() {
         Brand brand = new Brand(1L, "Category name", "Description.");
-        doNothing().when(brandPersistentPort).saveBrand(brand);
         assertDoesNotThrow(() -> brandUseCase.saveBrand(brand));
-        verify(brandPersistentPort).saveBrand(brand);
+        verify(brandPersistentPort, times(1)).saveBrand(brand);
     }
 
     @Test
