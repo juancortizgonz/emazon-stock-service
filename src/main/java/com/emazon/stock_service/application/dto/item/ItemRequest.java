@@ -24,7 +24,8 @@ public class ItemRequest implements Serializable {
     private String itemDescription;
 
     @NotNull(message = ItemValidationConstants.ITEM_QUANTITY_IS_REQUIRED)
-    @Size(min = ItemValidationConstants.ITEM_QUANTITY_MIN_VALUE, max = ItemValidationConstants.ITEM_QUANTITY_MAX_VALUE, message = ItemValidationConstants.ITEM_QUANTITY_VALUE_MESSAGE)
+    @Min(value = ItemValidationConstants.ITEM_QUANTITY_MIN_VALUE)
+    @Max(value = ItemValidationConstants.ITEM_QUANTITY_MAX_VALUE)
     private Integer itemQuantity;
 
     @NotNull(message = ItemValidationConstants.ITEM_PRICE_IS_REQUIRED)

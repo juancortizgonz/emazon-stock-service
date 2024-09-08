@@ -12,10 +12,7 @@ import org.mapstruct.Named;
         IBrandEntityMapper.class,
 })
 public interface IItemEntityMapper {
-    @Mapping(source = "brandId", target = "brandId")
-    Item toItem(ItemEntity itemEntity);
-
-    @Mapping(source = "brandId", target = "brandId")
+    @Mapping(source = "brandId", target = "brandId", qualifiedByName = "idToBrand")
     @Mapping(source = "categoryIdList", target = "categoryIdList", qualifiedByName = "idToCategory")
     ItemEntity toItemEntity(Item item);
 
