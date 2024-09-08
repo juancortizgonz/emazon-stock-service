@@ -20,6 +20,6 @@ public class ItemUseCase implements IItemServicePort {
 
     @Override
     public CustomPagination<Item> getAllItemsWithPagination(PaginationInfo paginationInfo) {
-        return null;
+        return itemPersistentPort.getAllItemsWithPagination(paginationInfo);
     }
 }
