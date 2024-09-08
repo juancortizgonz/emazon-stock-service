@@ -8,4 +8,5 @@ public interface ICategoryPersistentPort {
     void saveCategory(Category category);
     boolean existsByName(String name);
     List<Category> getCategories(String order);
+    List<Category> getAllByItemId(Long itemId);
 }
