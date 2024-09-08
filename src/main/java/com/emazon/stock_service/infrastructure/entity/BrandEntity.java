@@ -13,8 +13,13 @@ import java.util.List;
 public class BrandEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "brand_id")
     private Long id;
+
+    @Column(name = "brand_name", unique = true)
     private String name;
+
+    @Column(name = "brand_description")
     private String description;
 
     @OneToMany(mappedBy = "brandId", fetch = FetchType.LAZY)
