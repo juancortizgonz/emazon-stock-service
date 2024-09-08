@@ -5,7 +5,9 @@ import com.emazon.stock_service.domain.spi.IItemPersistentPort;
 import com.emazon.stock_service.infrastructure.mapper.IItemEntityMapper;
 import com.emazon.stock_service.infrastructure.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
 @RequiredArgsConstructor
 public class ItemJpaAdapter implements IItemPersistentPort {
     private final IItemEntityMapper itemEntityMapper;
