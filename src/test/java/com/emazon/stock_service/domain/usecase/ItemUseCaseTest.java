@@ -35,8 +35,8 @@ class ItemUseCaseTest {
     void shouldCreateItemWhenBrandAndCategoriesExist() {
         Brand brand = new Brand(1L, "Brand name", "Brand description");
         Category category = new Category(1L, "Category name", "Category description");
-        List<Long> categories = new ArrayList<>(List.of(1L));
-        Item item = new Item(1L, "Item name", "Item description", 1, 2000.0, 1L, categories);
+        List<Long> categories = new ArrayList<>(List.of(category.getId()));
+        Item item = new Item(1L, "Item name", "Item description", 1, 2000.0, brand.getId(), categories);
 
         itemUseCase.saveItem(item);
         verify(itemPersistentPort, times(1)).saveItem(item);
@@ -45,7 +45,7 @@ class ItemUseCaseTest {
     @Test
     void shouldNotSaveItemWhenBrandDoesNotExist() {
         Category category = new Category(1L, "Category name", "Category description");
-        List<Long> categories = new ArrayList<>(List.of(1L));
+        List<Long> categories = new ArrayList<>(List.of(category.getId()));
         Item item = new Item(1L, "Item name", "Item description", 1, 2000.0, 2L, categories);
 
         verify(itemPersistentPort, never()).saveItem(item);
@@ -55,12 +55,8 @@ class ItemUseCaseTest {
     void shouldNotSaveItemWhenCategoryDoesNotExist() {
         Brand brand = new Brand(1L, "Brand name", "Brand description");
         List<Long> categories = new ArrayList<>(List.of(1L));
-        Item item = new Item(1L, "Item name", "Item description", 1, 2000.0, 1L, categories);
+        Item item = new Item(1L, "Item name", "Item description", 1, 2000.0, brand.getId(), categories);
 
         verify(itemPersistentPort, never()).saveItem(item);
-    }
-
-    @Test
-    void getAllItemsWithPagination() {
     }
 }

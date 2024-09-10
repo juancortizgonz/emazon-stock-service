@@ -1,6 +1,5 @@
 package com.emazon.stock_service.application.handler;
 
-import com.emazon.stock_service.application.dto.item.ItemRequest;
 import com.emazon.stock_service.application.dto.item.ItemResponse;
 import com.emazon.stock_service.domain.model.CustomPagination;
 import com.emazon.stock_service.domain.model.Item;

@@ -7,7 +7,6 @@ import com.emazon.stock_service.application.mapper.IBrandDtoMapper;
 import com.emazon.stock_service.application.mapper.ICategoryDtoMapper;
 import com.emazon.stock_service.domain.api.IBrandServicePort;
 import com.emazon.stock_service.domain.model.Item;
-import com.emazon.stock_service.domain.usecase.BrandUseCase;
 import java.util.Collections;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
