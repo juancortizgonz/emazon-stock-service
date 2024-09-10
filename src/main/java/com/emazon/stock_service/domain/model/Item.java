@@ -3,7 +3,7 @@ package com.emazon.stock_service.domain.model;
 import java.util.List;
 
 public class Item {
-    private String itemId;
+    private Long itemId;
     private String itemName;
     private String itemDescription;
     private Integer itemQuantity;
@@ -14,7 +14,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(String itemId, String itemName, String itemDescription, Integer itemQuantity, Double itemPrice, Long brandId, List<Long> categoryIdList) {
+    public Item(Long itemId, String itemName, String itemDescription, Integer itemQuantity, Double itemPrice, Long brandId, List<Long> categoryIdList) {
         this.itemId = itemId;
         this.itemName = itemName;
         this.itemDescription = itemDescription;
@@ -24,11 +24,11 @@ public class Item {
         this.categoryIdList = categoryIdList;
     }
 
-    public String getItemId() {
+    public Long getItemId() {
         return itemId;
     }
 
-    public void setItemId(String itemId) {
+    public void setItemId(Long itemId) {
         this.itemId = itemId;
     }
 

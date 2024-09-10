@@ -40,4 +40,11 @@ public class BrandJpaAdapter implements IBrandPersistentPort {
             throw new BrandException(e.getMessage());
         }
     }
+
+    @Override
+    public Brand getBrandById(Long brandId) {
+        return brandRepository.findById(brandId)
+                .map(brandEntityMapper::toBrand)
+                .orElseThrow(() -> new BrandException("Brand with id " + brandId + " not found."));
+    }
 }

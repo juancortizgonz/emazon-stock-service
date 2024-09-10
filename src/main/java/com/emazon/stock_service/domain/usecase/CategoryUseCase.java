@@ -32,4 +32,9 @@ public class CategoryUseCase implements ICategoryServicePort {
         ValidationUtils.validateOrderString(order);
         return categoryPersistentPort.getCategories(order);
     }
+
+    @Override
+    public List<Category> getAllByItemId(Long itemId) {
+        return categoryPersistentPort.getAllByItemId(itemId);
+    }
 }

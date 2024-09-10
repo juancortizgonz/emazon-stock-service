@@ -2,6 +2,7 @@ package com.emazon.stock_service.infrastructure.adapter;
 
 import com.emazon.stock_service.domain.model.Category;
 import com.emazon.stock_service.domain.spi.ICategoryPersistentPort;
+import com.emazon.stock_service.infrastructure.entity.CategoryEntity;
 import com.emazon.stock_service.infrastructure.exception.CategoryException;
 import com.emazon.stock_service.infrastructure.mapper.ICategoryEntityMapper;
 import com.emazon.stock_service.infrastructure.repository.CategoryRepository;
@@ -39,5 +40,11 @@ public class CategoryJpaAdapter implements ICategoryPersistentPort {
         } catch (Exception e) {
             throw new CategoryException(e.getMessage());
         }
+    }
+
+    @Override
+    public List<Category> getAllByItemId(Long itemId) {
+        List<CategoryEntity> categories = categoryRepository.findCategoriesByItemId(itemId);
+        return categoryEntityMapper.toCategoryList(categories);
     }
 }
