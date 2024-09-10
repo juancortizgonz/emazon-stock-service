@@ -27,8 +27,9 @@ public class ItemController {
     @Operation(summary = ItemRestControllerConstants.SAVE_ITEM_NAME, description = ItemRestControllerConstants.SAVE_ITEM_DESCRIPTION)
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = ItemRestControllerConstants.SAVE_ITEM_RESPONSE_CREATED_DESCRIPTION),
-            @ApiResponse(responseCode = "400", description = ItemRestControllerConstants.SAVE_ITEM_RESPONSE_BAD_REQUEST_DESCRIPTION)
+            @ApiResponse(responseCode = "400", description = ItemRestControllerConstants.ITEM_RESPONSE_BAD_REQUEST_DESCRIPTION)
     })
+    @Tag(name = ItemRestControllerConstants.ITEM_TAG)
     @PostMapping
     public void saveItem(
             @Parameter(description = ItemRestControllerConstants.ITEM_BODY_DESCRIPTION,
@@ -37,6 +38,12 @@ public class ItemController {
         itemHandler.saveItem(requestMapper.toItem(itemRequest));
     }
 
+    @Operation(summary = ItemRestControllerConstants.GET_ITEMS_NAME, description = ItemRestControllerConstants.GET_ITEMS_DESCRIPTION)
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = ItemRestControllerConstants.GET_ITEMS_RESPONSE_SUCCESS_DESCRIPTION),
+            @ApiResponse(responseCode = "400", description = ItemRestControllerConstants.ITEM_RESPONSE_BAD_REQUEST_DESCRIPTION)
+    })
+    @Tag(name = ItemRestControllerConstants.ITEM_TAG)
     @GetMapping
     public ResponseEntity<CustomPagination<ItemResponse>> getItemsWithPagination(
             @RequestParam(defaultValue = "itemName", required = false) String sortArgument,
