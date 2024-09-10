@@ -32,4 +32,9 @@ public class BrandUseCase implements IBrandServicePort {
         ValidationUtils.validateOrderString(order);
         return brandPersistentPort.getBrands(order);
     }
+
+    @Override
+    public Brand getBrandById(Long brandId) {
+        return brandPersistentPort.getBrandById(brandId);
+    }
 }

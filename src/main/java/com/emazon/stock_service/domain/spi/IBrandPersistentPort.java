@@ -8,4 +8,5 @@ public interface IBrandPersistentPort {
     void saveBrand(Brand brand);
     boolean existsByName(String name);
     List<Brand> getBrands(String order);
+    Brand getBrandById(Long brandId);
 }
